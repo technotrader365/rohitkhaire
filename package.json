@@ -1,0 +1,23 @@
+{
+    "name": "x-1909902-geminiops",
+    "version": "1.0.0",
+    "description": "[BUILD AGENT GENERATED]:  AI-powered Builder Agent that allows users to manage the ServiceNow platform, build applications through natural language conversation, and execute complex workflows via a seamless chat-based interface. Features autonomous coding capabilities, self-learning skill registry, and platform administration tools.",
+    "license": "UNLICENSED",
+    "scripts": {
+        "build": "now-sdk build",
+        "deploy": "now-sdk install",
+        "transform": "now-sdk transform",
+        "types": "now-sdk dependencies"
+    },
+    "dependencies": {
+        "react": "18.2.0",
+        "react-dom": "18.2.0",
+        "marked": "4.3.0"
+    },
+    "devDependencies": {
+        "@servicenow/sdk": "4.2.0",
+        "@servicenow/glide": "26.0.1",
+        "eslint": "8.50.0",
+        "@servicenow/eslint-plugin-sdk-app-plugin": "4.2.0"
+    }
+}

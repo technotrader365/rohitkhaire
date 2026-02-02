@@ -1,0 +1,10 @@
+{
+    "scope": "x_1909902_geminiop",
+    "scopeId": "096d422183f6f21030d37296feaad378",
+    "name": "Geminiops",
+    "tsconfigPath": "./src/server/tsconfig.json",
+    "licensing": {
+        "enforceLicense": "none"
+    },
+    "description": "[BUILD AGENT GENERATED]:  AI-powered Builder Agent that allows users to manage the ServiceNow platform, build applications through natural language conversation, and execute complex workflows via a seamless chat-based interface. Features autonomous coding capabilities, self-learning skill registry, and platform administration tools."
+}

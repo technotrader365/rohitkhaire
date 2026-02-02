@@ -1,0 +1,288 @@
+.sidebar {
+  width: 320px;
+  background: #010409;
+  border-right: 1px solid #30363d;
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.brand {
+  padding: 20px 20px 16px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  border-bottom: 1px solid #21262d;
+}
+
+.brand-icon {
+  font-size: 24px;
+}
+
+.brand-text {
+  flex: 1;
+}
+
+.brand-name {
+  font-size: 16px;
+  font-weight: 600;
+  color: #f0f6fc;
+  line-height: 1.2;
+}
+
+.brand-tagline {
+  font-size: 12px;
+  color: #8b949e;
+  line-height: 1.2;
+}
+
+.nav-tabs {
+  display: flex;
+  padding: 0 16px;
+  background: #0d1117;
+  border-bottom: 1px solid #21262d;
+}
+
+.nav-tab {
+  flex: 1;
+  padding: 12px 8px;
+  background: transparent;
+  border: none;
+  color: #8b949e;
+  font-size: 13px;
+  cursor: pointer;
+  border-bottom: 2px solid transparent;
+  transition: all 0.2s ease;
+}
+
+.nav-tab:hover {
+  color: #f0f6fc;
+}
+
+.nav-tab.active {
+  color: #1f6feb;
+  border-bottom-color: #1f6feb;
+}
+
+.sidebar-content {
+  flex: 1;
+  overflow-y: auto;
+  padding: 0;
+}
+
+.skills-panel,
+.status-panel {
+  padding: 20px;
+}
+
+.panel-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 16px;
+}
+
+.panel-title {
+  font-size: 14px;
+  font-weight: 600;
+  color: #f0f6fc;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.refresh-button {
+  background: transparent;
+  border: 1px solid #30363d;
+  border-radius: 6px;
+  padding: 6px 8px;
+  cursor: pointer;
+  font-size: 12px;
+  color: #8b949e;
+  transition: all 0.2s ease;
+}
+
+.refresh-button:hover {
+  background: #21262d;
+  border-color: #484f58;
+}
+
+.empty-state {
+  text-align: center;
+  padding: 40px 20px;
+  color: #8b949e;
+}
+
+.empty-icon {
+  font-size: 32px;
+  margin-bottom: 12px;
+}
+
+.empty-text div {
+  font-size: 14px;
+  margin-bottom: 4px;
+  color: #c9d1d9;
+}
+
+.empty-text small {
+  font-size: 12px;
+  color: #6e7681;
+}
+
+.skill-category {
+  margin-bottom: 20px;
+}
+
+.category-header {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 8px;
+  padding: 8px 0;
+  border-bottom: 1px solid #21262d;
+}
+
+.category-icon {
+  font-size: 14px;
+}
+
+.category-name {
+  flex: 1;
+  font-size: 13px;
+  font-weight: 500;
+  color: #c9d1d9;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.skill-count {
+  background: #21262d;
+  color: #8b949e;
+  font-size: 11px;
+  padding: 2px 6px;
+  border-radius: 10px;
+  min-width: 20px;
+  text-align: center;
+}
+
+.skill-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.skill-item {
+  padding: 8px 12px;
+  margin-bottom: 4px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  border-left: 3px solid transparent;
+}
+
+.skill-item:hover {
+  background: #161b22;
+  border-left-color: #1f6feb;
+}
+
+.skill-name {
+  font-size: 13px;
+  color: #c9d1d9;
+  line-height: 1.3;
+  margin-bottom: 2px;
+}
+
+.skill-meta {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.usage-count {
+  font-size: 11px;
+  color: #6e7681;
+}
+
+.status-group {
+  margin-bottom: 24px;
+}
+
+.status-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px 0;
+  border-bottom: 1px solid #21262d;
+}
+
+.status-item:last-child {
+  border-bottom: none;
+}
+
+.status-label {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 13px;
+  color: #8b949e;
+}
+
+.status-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+}
+
+.status-dot.online {
+  background: #3fb950;
+  box-shadow: 0 0 4px rgba(63, 185, 80, 0.5);
+}
+
+.status-dot.offline {
+  background: #f85149;
+  box-shadow: 0 0 4px rgba(248, 81, 73, 0.5);
+}
+
+.status-value {
+  font-size: 13px;
+  color: #c9d1d9;
+  font-weight: 500;
+}
+
+.capabilities-list {
+  margin-top: 24px;
+}
+
+.capability-title {
+  font-size: 12px;
+  font-weight: 600;
+  color: #8b949e;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-bottom: 12px;
+}
+
+.capability-item {
+  padding: 6px 12px;
+  margin-bottom: 4px;
+  font-size: 13px;
+  color: #c9d1d9;
+  background: #161b22;
+  border-radius: 4px;
+  border-left: 3px solid #238636;
+}
+
+.sidebar-footer {
+  padding: 16px 20px;
+  border-top: 1px solid #21262d;
+  background: #0d1117;
+}
+
+.version-info {
+  text-align: center;
+}
+
+.version-info small {
+  font-size: 11px;
+  color: #6e7681;
+}

@@ -1,42 +1,49 @@
 import React, { useEffect } from 'react';
 
 export default function MessageBubble({ message, isLatest }) {
-  
+
   // Enhanced markdown parsing with better code block handling
   const parseMarkdown = (text) => {
-    if (!text) return text;
-    
-    let parsed = text;
-    
+    if (!text) return '';
+
+    let parsed = String(text);
+
     // Code blocks (triple backticks)
     parsed = parsed.replace(/```(\w+)?\n?([\s\S]*?)```/g, (match, lang, code) => {
       const language = lang || 'javascript';
       return `<pre class="code-block"><code class="language-${language}">${escapeHtml(code.trim())}</code></pre>`;
     });
-    
+
     // Inline code (single backticks)
     parsed = parsed.replace(/`([^`]+)`/g, '<code class="inline-code">$1</code>');
-    
+
     // Bold text
     parsed = parsed.replace(/\*\*([^*]+)\*\*/g, '<strong>$1</strong>');
-    
+
     // Italic text
     parsed = parsed.replace(/\*([^*]+)\*/g, '<em>$1</em>');
-    
+
     // Links
     parsed = parsed.replace(/\[([^\]]+)\]\(([^)]+)\)/g, '<a href="$2" target="_blank" rel="noopener noreferrer">$1</a>');
-    
-    // Line breaks
-    parsed = parsed.replace(/\n/g, '<br/>');
-    
+
     // Lists (simple implementation)
     parsed = parsed.replace(/^- (.+)$/gm, '<li>$1</li>');
     parsed = parsed.replace(/(<li>.*<\/li>)/s, '<ul>$1</ul>');
-    
+
+    // Line breaks (convert double newlines to paragraphs, single to br)
+    parsed = parsed.replace(/\n\n/g, '</p><p>');
+    parsed = parsed.replace(/\n/g, '<br/>');
+
+    // Wrap in paragraph if not already structured
+    if (!parsed.startsWith('<')) {
+      parsed = `<p>${parsed}</p>`;
+    }
+
     return parsed;
   };
 
   const escapeHtml = (text) => {
+    if (!text) return '';
     const div = document.createElement('div');
     div.textContent = text;
     return div.innerHTML;
@@ -49,9 +56,10 @@ export default function MessageBubble({ message, isLatest }) {
         window.Prism.highlightAll();
       }, 100);
     }
-  }, [isLatest, message.text]);
+  }, [isLatest, message?.text]);
 
   const formatTimestamp = (timestamp) => {
+    if (!timestamp) return '';
     return new Date(timestamp).toLocaleTimeString('en-US', {
       hour: '2-digit',
       minute: '2-digit',
@@ -59,12 +67,17 @@ export default function MessageBubble({ message, isLatest }) {
     });
   };
 
+  // Handle missing or invalid message
+  if (!message || !message.text) {
+    return null;
+  }
+
   return (
-    <div className={`message-row ${message.role}`}>
+    <div className={`message-row ${message.role || 'assistant'}`}>
       <div className="avatar">
         <span>{message.role === 'user' ? '👤' : '🤖'}</span>
       </div>
-      
+
       <div className="bubble">
         {/* Thought Process (for AI messages) */}
         {message.thought && (
@@ -79,7 +92,7 @@ export default function MessageBubble({ message, isLatest }) {
         )}
 
         {/* Main Message Content */}
-        <div 
+        <div
           className="message-content"
           dangerouslySetInnerHTML={{ __html: parseMarkdown(message.text) }}
         />
@@ -92,10 +105,10 @@ export default function MessageBubble({ message, isLatest }) {
               <span className="artifact-title">Action Completed</span>
             </div>
             <div className="artifact-body">
-              <strong>Operation:</strong> {message.artifact.operation}<br/>
+              <strong>Operation:</strong> {message.artifact.operation}<br />
               {message.artifact.id && (
                 <>
-                  <strong>Record ID:</strong> 
+                  <strong>Record ID:</strong>{' '}
                   <code className="artifact-id">{message.artifact.id}</code>
                 </>
               )}

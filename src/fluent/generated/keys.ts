@@ -17,6 +17,10 @@ declare global {
                         table: 'sys_app_module'
                         id: '20b9dfe2849c443c9b9956eb8752342a'
                     }
+                    'app.css': {
+                        table: 'sys_ux_theme_asset'
+                        id: '35d8efc4ba884a2ba9e31242f95eaca8'
+                    }
                     approval_workflow: {
                         table: 'sys_script'
                         id: '4b7806c190cc4f97a5835552db4ed618'
